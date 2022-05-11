@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>267</width>
+    <height>474</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>180</y>
+      <width>55</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Fóco</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="LineEdit_b">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>250</y>
+      <width>41</width>
+      <height>21</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Boton_luz">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>370</y>
+      <width>131</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Luz</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="LineEdit_Foco">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>170</y>
+      <width>113</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Boton_borrar">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>330</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Borrar</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Boton_imprimir">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>330</y>
+      <width>93</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Imprimir</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="ComboBox_Figuras">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>80</y>
+      <width>181</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>Párabola</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Elipse</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Hiperbola</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLineEdit" name="LineEdit_a">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>250</y>
+      <width>41</width>
+      <height>21</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="LineEdit_limites">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>140</y>
+      <width>113</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>250</y>
+      <width>21</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>a:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="LineEdit_Vertice">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>200</y>
+      <width>113</width>
+      <height>22</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="etiqueta">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>140</y>
+      <width>91</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Límites</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>210</y>
+      <width>55</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Vértice</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>250</y>
+      <width>55</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>b:</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>267</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuArvibo">
+    <property name="title">
+     <string>Archivo</string>
+    </property>
+    <widget class="QMenu" name="menuExportar">
+     <property name="title">
+      <string>Exportar</string>
+     </property>
+     <addaction name="separator"/>
+     <addaction name="action_JPG"/>
+     <addaction name="action_PNG"/>
+    </widget>
+    <addaction name="actionGuardar"/>
+    <addaction name="menuExportar"/>
+   </widget>
+   <widget class="QMenu" name="menuPredetermiado">
+    <property name="title">
+     <string>Predetermiado</string>
+    </property>
+    <widget class="QMenu" name="menuTelescopios">
+     <property name="title">
+      <string>Telescopios</string>
+     </property>
+     <addaction name="actionGregoriano"/>
+     <addaction name="actionNewtoniano"/>
+     <addaction name="actionCassegrain"/>
+    </widget>
+    <addaction name="menuTelescopios"/>
+   </widget>
+   <addaction name="menuArvibo"/>
+   <addaction name="menuPredetermiado"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionGuardar">
+   <property name="text">
+    <string>Guardar</string>
+   </property>
+  </action>
+  <action name="action_JPG">
+   <property name="text">
+    <string>.JPG</string>
+   </property>
+  </action>
+  <action name="action_PNG">
+   <property name="text">
+    <string>.PNG</string>
+   </property>
+  </action>
+  <action name="actionGregoriano">
+   <property name="text">
+    <string>Gregoriano</string>
+   </property>
+  </action>
+  <action name="actionNewtoniano">
+   <property name="text">
+    <string>Newtoniano</string>
+   </property>
+  </action>
+  <action name="actionCassegrain">
+   <property name="text">
+    <string>Cassegrain</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
