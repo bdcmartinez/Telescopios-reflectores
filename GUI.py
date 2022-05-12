@@ -26,8 +26,8 @@ class Hiperbola_horizontal():
         Y_plus = []
         Y_minus = []
         for x in self.X :
-            y_plus  = self.centro[1] + self.a * ( 1 + ( (x - self.centro[0] )**2 / ( self.b**2 ) ) )**(0.5)
-            y_minus = self.centro[1] - self.a * ( 1 + ( (x - self.centro[0] )**2 / ( self.b**2 ) ) )**(0.5)
+            y_plus  = self.centro[0] + self.a * ( 1 + ( (x - self.centro[1] )**2 / ( self.b**2 ) ) )**(0.5)
+            y_minus = self.centro[0] - self.a * ( 1 + ( (x - self.centro[1] )**2 / ( self.b**2 ) ) )**(0.5)
             Y_plus = np.append(Y_plus, [y_plus])
             Y_minus = np.append(Y_minus, [y_minus])
         plt.xlim(lim_x_i, lim_x_f)
@@ -51,11 +51,15 @@ class Window(QMainWindow):
         uic.loadUi("GUI.app.ui",self)
         self.setWindowTitle("Telescopios")
         
-        self.Boton_luz.setEnabled(False)
+        self.Label_a.setEnabled(False)
+        self.Label_b.setEnabled(False)
+        self.LineEdit_a.setEnabled(False)
+        self.LineEdit_b.setEnabled(False)     
+        
         self.Boton_imprimir.clicked.connect(self.fn_imprimir)
         
         self.Boton_borrar.clicked.connect(self.fn_Borrar_datos)
-        self.Boton_luz.clicked.connect(self.fn_Animacion_luz)
+        #self.Boton_luz.clicked.connect(self.fn_Animacion_luz)
     
         self.ComboBox_Conicas.activated.connect(self.fn_Cambiar)  #Sirve para detectar que elemento esta en el combo box
     
@@ -64,9 +68,19 @@ class Window(QMainWindow):
         if self.ComboBox_Conicas.currentText() != "Párabola":
             self.LineEdit_Foco.setEnabled(False)
             self.Label_Foco.setEnabled(False)
+            
+            self.Label_a.setEnabled(True)
+            self.Label_b.setEnabled(True)
+            self.LineEdit_a.setEnabled(True)
+            self.LineEdit_b.setEnabled(True)
         else:
             self.LineEdit_Foco.setEnabled(True)
-            self.Label_Foco.setEnabled(True)        
+            self.Label_Foco.setEnabled(True)       
+            self.Label_a.setEnabled(False)
+            self.Label_b.setEnabled(False)
+            self.LineEdit_a.setEnabled(False)
+            self.LineEdit_b.setEnabled(False)
+            
     
     def fn_Borrar_datos(self):
         self.LineEdit_limites.setText("")
@@ -82,7 +96,7 @@ class Window(QMainWindow):
     def fn_imprimir(self):   
         
         demo = AppDemo()
-        demo.show()
+        #demo.show()
         print("Funcionando Imprimir")
         
     def fn_Animacion_luz(self):
@@ -95,18 +109,19 @@ class Canvas(FigureCanvas):
         super().__init__(fig)
         self.setParent(parent)
 
-        """ 
-        Matplotlib Script
-        """
+
     
         
         if GUI.ComboBox_Conicas.currentText() == "Hiperbola":
                 
-            limits = [[-6, 6], [-6, 6]]
+            y = float(GUI.LineEdit_VcoordenadaY.text())
+            x = float(GUI.LineEdit_VcoordenadaX.text())
+            
             a = float(GUI.LineEdit_a.text())
             b = float(GUI.LineEdit_b.text())
-            X = np.linspace(-3, 3, 150)
-            centro = [float(GUI.LineEdit_VcoordenadaX.text()), float(GUI.LineEdit_VcoordenadaY.text())]
+            X = np.linspace(-6+y, 6+y,200)
+            limits = [[- (-15+y)  , -15+y], [- (-15+y) , -15+y]]
+            centro = [x, y]
 
             
             hiperbola_1 = Hiperbola_horizontal(a, b, centro, X, limits)
