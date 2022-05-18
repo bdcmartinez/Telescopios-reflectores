@@ -129,7 +129,7 @@ class parabola_horizontal():
         plt.scatter(self.vertice[0] + self.foco , self.vertice[1], c='r')
         plt.xticks([self.vertice[0]], ['f'] )
         plt.yticks([], [] )
-        plt.title("Telescopio "+self.nombre)
+        plt.title("TELESCOPIO "+self.nombre)
         plt.show()
 
 class Elipse_horizontal():
@@ -292,9 +292,9 @@ class Window(QMainWindow):
 
 class Canvas(FigureCanvas):
     def __init__(self, parent):
-        fig, self.ax = plt.subplots(figsize=(4.5, 3.5), dpi=150)
-        super().__init__(fig)
-        self.setParent(parent)
+        #fig, self.ax = plt.subplots(figsize=(4.5, 3.5), dpi=150)
+        #super().__init__(fig)
+        #self.setParent(parent)
         
         
         if GUI.ComboBox_Conicas.currentText() == "Newtoniano": #parabola
@@ -309,7 +309,7 @@ class Canvas(FigureCanvas):
             centro = [x, y]
 
             
-            parabola_1 = parabola_horizontal(f, centro, limits, X,"Newtoniano")
+            parabola_1 = parabola_horizontal(f, centro, limits, X,"NEWTONIANO")
             parabola_1.plot_parabola_horizontal()      
             
                     
@@ -338,7 +338,7 @@ class Canvas(FigureCanvas):
             centro = [x, y]
 
             
-            parabola_1 = parabola_horizontal(f, centro, limits, X,"Gregoriano")
+            parabola_1 = parabola_horizontal(f, centro, limits, X,"GREGORIANO")
             parabola_1.plot_parabola_horizontal()    
   
                                                   
@@ -365,7 +365,7 @@ class Canvas(FigureCanvas):
             centro = [x, y]
 
             
-            parabola_1 = parabola_horizontal(f, centro, limits, X,"Cassegrain")
+            parabola_1 = parabola_horizontal(f, centro, limits, X,"CASSEGRAIN")
             parabola_1.plot_parabola_horizontal()      
                         
             
