@@ -117,16 +117,19 @@ class parabola_horizontal():
         lim_y_i, lim_y_f = self.limits[1]
         Y_plus  = []
         Y_minus = []
-        for x in self.X :
+        for x in self.X:
             y_plus  = + (4*self.foco*(x-self.vertice[0]))**(0.5) + self.vertice[1]
             y_minus = - (4*self.foco*(x-self.vertice[0]))**(0.5) + self.vertice[1]
             Y_plus = np.append(Y_plus, [y_plus]) 
             Y_minus = np.append(Y_minus, [y_minus]) 
         plt.xlim(lim_x_i, lim_x_f)
         plt.ylim(lim_y_i, lim_y_f)
-        plt.plot(self.X, Y_plus, c='b')
-        plt.plot(self.X, Y_minus, c='b')
-        plt.scatter(self.vertice[0] + self.foco , self.vertice[1], c='r')
+        plt.plot(self.X, Y_plus, c='r',label="Parábola: f="+str(round(self.foco)))
+        plt.plot(self.X, Y_minus, c='r')
+        plt.scatter(self.vertice[0], self.vertice[1] , c='r')
+        plt.legend(loc="upper left")
+
+        plt.scatter(self.vertice[0] + self.foco , self.vertice[1], c='0')
         plt.xticks([self.vertice[0]], ['f'] )
         plt.yticks([], [] )
         plt.title("TELESCOPIO "+self.nombre)
@@ -152,10 +155,13 @@ class Elipse_horizontal():
             Y_minus = np.append(Y_minus, [y_minus])
         plt.xlim(lim_x_i, lim_x_f)
         plt.ylim(lim_y_i, lim_y_f)
-        plt.plot(self.X, Y_plus, c='b')
+        plt.plot(self.X, Y_plus, c='b',label = "Elipse: a="+str(self.a)+", b="+str(self.b))
         plt.plot(self.X, Y_minus, c='b')
-        plt.scatter(self.centro[0] - self.c , self.centro[1], c='r')
-        plt.scatter(self.centro[0] + self.c , self.centro[1], c='r')
+        plt.legend(loc="upper left")
+        plt.scatter(self.centro[0] - self.c , self.centro[1], c='0')
+        plt.scatter(self.centro[0] + self.c , self.centro[1], c='0')
+        plt.scatter(self.centro[0] - self.a , self.centro[1] , c='b')
+        plt.scatter(self.centro[0] + self.a, self.centro[1]  , c='b')
         plt.xticks([self.centro[0] - self.c, self.centro[0] + self.c], ['f', 'f'] )
         plt.yticks([], [] )
         plt.show()
@@ -183,12 +189,13 @@ class Hiperbola_horizontal():
             Y_minus = np.append(Y_minus, [y_minus])
         plt.xlim(lim_x_i, lim_x_f)
         plt.ylim(lim_y_i, lim_y_f)
-        plt.plot(Y_plus, self.X, c='b')
+        plt.plot(Y_plus, self.X, c='b',label = "Hipérbola: a="+str(self.a)+", b="+str(self.b))
+        plt.legend(loc="upper left")
         #plt.plot(Y_minus, self.X, c='b')
         plt.scatter(self.centro[0] - self.a , self.centro[1] , c='b')
         plt.scatter(self.centro[0] + self.a, self.centro[1]  , c='b')
-        plt.scatter(self.centro[0] - self.c , self.centro[1] , c='r')
-        plt.scatter(self.centro[0] + self.c, self.centro[1]  , c='r')
+        plt.scatter(self.centro[0] - self.c , self.centro[1] , c='0')
+        plt.scatter(self.centro[0] + self.c, self.centro[1]  , c='0')
         plt.xticks([self.centro[0]], ['f'] )
         plt.yticks([], [] )
         plt.show()
@@ -196,33 +203,33 @@ class Hiperbola_horizontal():
 
 
 class Window(QMainWindow):
-    
-    
     def __init__(self):
         super().__init__()
         uic.loadUi("GUI.app.ui",self)
         self.setWindowTitle("Telescopios")
         
-        self.Label_a.setEnabled(False)
+        #Establece las entradas de datos para la Elipse e Hiperbola como desactivadas
+        #ya que la opción primera que está es la de telescopio Newtoniano
+        self.Label_a.setEnabled(False) 
         self.Label_b.setEnabled(False)
         self.LineEdit_a.setEnabled(False)
         self.LineEdit_b.setEnabled(False)     
         
+        #Dos botones en los cuales al momento de hacerles click corren una función
         self.Boton_imprimir.clicked.connect(self.fn_imprimir)
-        
         self.Boton_borrar.clicked.connect(self.fn_Borrar_datos)
-        #self.Boton_luz.clicked.connect(self.fn_Animacion_luz)
-    
-        self.ComboBox_Conicas.activated.connect(self.fn_Cambiar)  #Sirve para detectar que elemento esta en el combo box
+        
+        #En el momento en el que se cambie el tipo de telescopio se correra la función fn_Cambiar
+        self.ComboBox_Conicas.activated.connect(self.fn_Cambiar)  
+        #En el momento en el que se cambie el tipo de conica seleccionada se correra la función fn_CambiarBienvenida 
         self.ComboBox_ConicaSelect.activated.connect(self.fn_CambiarBienvenida)
     
-    def fn_CambiarBienvenida(self):
+    def fn_CambiarBienvenida(self): #Esta función Imprime un texto en el cual menciona al usuario el tipo de conica que debe digitar los datos
         self.Label_Bienvenida.setText("Inserte los datos de la " + self.ComboBox_ConicaSelect.currentText())
-    def fn_Cambiar(self):
-        
-        self.Label_Conicas.setText("")
+    
 
-        if self.ComboBox_Conicas.currentText() != "Newtoniano":            
+        if self.ComboBox_ConicaSelect.currentText() != "Parábola":            
+            
             self.LineEdit_Foco.setEnabled(False)
             self.Label_Foco.setEnabled(False)
             
@@ -230,7 +237,6 @@ class Window(QMainWindow):
             self.Label_b.setEnabled(True)
             self.LineEdit_a.setEnabled(True)
             self.LineEdit_b.setEnabled(True)
-        
         
         else:
             self.LineEdit_Foco.setEnabled(True)
@@ -240,9 +246,38 @@ class Window(QMainWindow):
             self.LineEdit_a.setEnabled(False)
             self.LineEdit_b.setEnabled(False)
             
+            
+    def fn_Cambiar(self): #Activa o desactiva distintas entradas de texto dependiendo del tipo de telescopio que este seleccionado y de la tipo de conica seleccionada
+        
+        self.Label_Conicas.setText("")
+
+        
+        
+        #Si el telescopio es distinto a uno Newtoniano entonces se desactivan las Entradas para digitar el foco
+        #Y se activan las opciones de los semiejes
+        if self.ComboBox_Conicas.currentText() != "Newtoniano":            
+            
+            self.LineEdit_Foco.setEnabled(False)
+            self.Label_Foco.setEnabled(False)
+            
+            self.Label_a.setEnabled(True)
+            self.Label_b.setEnabled(True)
+            self.LineEdit_a.setEnabled(True)
+            self.LineEdit_b.setEnabled(True)
+        
+        else:
+            self.LineEdit_Foco.setEnabled(True)
+            self.Label_Foco.setEnabled(True)       
+            self.Label_a.setEnabled(False)
+            self.Label_b.setEnabled(False)
+            self.LineEdit_a.setEnabled(False)
+            self.LineEdit_b.setEnabled(False)
+            
+            
+        #Los siguientes if agregan o liminan opciones en el ComboBox_ConicaSelect dependiendo del tipo de 
+        #telescopio que se tenga en el ComboBox_Conicas
         if self.ComboBox_Conicas.currentText() == "Newtoniano":
             self.ComboBox_ConicaSelect.clear()
-            
             
             self.Label_Conicas.setText("Parábola")
             
@@ -253,43 +288,29 @@ class Window(QMainWindow):
             
             self.Label_Conicas.setText("Elipse y Parábola")
             
-            self.ComboBox_ConicaSelect.addItem("Parábola")
             self.ComboBox_ConicaSelect.addItem("Elipse")
-            
-            
+            self.ComboBox_ConicaSelect.addItem("Parábola")
+        
         if self.ComboBox_Conicas.currentText() == "Cassegrain":
             self.ComboBox_ConicaSelect.clear()
             
             self.Label_Conicas.setText("Hipérbola y Parábola")
             
-            self.ComboBox_ConicaSelect.addItem("Hiperbola")
+            self.ComboBox_ConicaSelect.addItem("Hipérbola")
             self.ComboBox_ConicaSelect.addItem("Parábola")
-    
-    
-
-
-    def fn_Borrar_datos(self):
+            
+    def fn_Borrar_datos(self): #Esta función elimina los datos que halla en las entradas de texto al momenento de 
+        #hacer click en el boton Borrar
         self.LineEdit_Foco.setText("")
         self.LineEdit_VcoordenadaX.setText("")
         self.LineEdit_VcoordenadaY.setText("")
         self.LineEdit_a.setText("")
         self.LineEdit_b.setText("")
 
-
-        print(self.ComboBox_Conicas.currentText())
-        
-        print("Funcionando borrar datos")
-        
-    def fn_imprimir(self):   
-        
+    def fn_imprimir(self):  #En el momento en el que se haga click en el boton imprimir se correra el codigo de la gráfica
         demo = AppDemo()
-        #demo.show()
-        print("Funcionando Imprimir")
+        #demo.show() #Si se deja esta opción se imprime una ventana doble de gráfica
         
-    def fn_Animacion_luz(self):
-        print("Funcionando luz")
- 
-
 class Canvas(FigureCanvas):
     def __init__(self, parent):
         #fig, self.ax = plt.subplots(figsize=(4.5, 3.5), dpi=150)
