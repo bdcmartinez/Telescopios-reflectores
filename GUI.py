@@ -8,7 +8,8 @@ import matplotlib.pyplot as plt
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from PyQt5.QtWidgets import QApplication, QWidget
 from sympy import C
-
+from PyQt5 import QtCore 
+from PyQt5 import QtGui
 """
 
 class parabola_horizontal():
@@ -200,12 +201,27 @@ class Hiperbola_horizontal():
         plt.yticks([], [] )
         plt.show()
 
+class Window2(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        uic.loadUi("Acerca del programa.ui",self)
+        self.setWindowTitle("Acerca del programa")
+        self.setWindowIcon(QtGui.QIcon('lupa.png')) 
+        
+        
+class Window3(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        uic.loadUi("Como usar.ui",self)
+        self.setWindowTitle("¿Cómo usar?")
+        self.setWindowIcon(QtGui.QIcon('instru.png')) 
 
 
 class Window(QMainWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi("GUI.app.ui",self)
+        self.setWindowIcon(QtGui.QIcon('logo.png')) 
         self.setWindowTitle("Telescopios")
         
         #Establece las entradas de datos para la Elipse e Hiperbola como desactivadas
@@ -223,7 +239,15 @@ class Window(QMainWindow):
         self.ComboBox_Conicas.activated.connect(self.fn_Cambiar)  
         #En el momento en el que se cambie el tipo de conica seleccionada se correra la función fn_CambiarBienvenida 
         self.ComboBox_ConicaSelect.activated.connect(self.fn_CambiarBienvenida)
-    
+        self.action_C_mo_usar_el_programa.triggered.connect(self.fn_VComo_Usar_el_Programa)
+        self.actionAcerca_de.triggered.connect(self.fn_VAcerca_de)
+        
+    def fn_VComo_Usar_el_Programa(self):
+        GUI3.show()
+    def fn_VAcerca_de(self):
+        GUI2.show()
+
+        
     def fn_CambiarBienvenida(self): #Esta función Imprime un texto en el cual menciona al usuario el tipo de conica que debe digitar los datos
         self.Label_Bienvenida.setText("Inserte los datos de la " + self.ComboBox_ConicaSelect.currentText())
     
@@ -404,5 +428,7 @@ class AppDemo(QWidget):
 if __name__ == '__main__':
     app=QApplication(sys.argv)
     GUI = Window()
+    GUI2 = Window2()
+    GUI3 = Window3()
     GUI.show() 
     sys.exit(app.exec_())
