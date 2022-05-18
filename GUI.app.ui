@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>363</width>
-    <height>423</height>
+    <width>502</width>
+    <height>505</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,11 +17,16 @@
    <widget class="QLabel" name="Label_Foco">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>260</y>
+      <x>60</x>
+      <y>270</y>
       <width>41</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Fóco:</string>
@@ -30,31 +35,46 @@
    <widget class="QLineEdit" name="LineEdit_b">
     <property name="geometry">
      <rect>
-      <x>220</x>
-      <y>170</y>
+      <x>370</x>
+      <y>310</y>
       <width>31</width>
       <height>21</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
     </property>
    </widget>
    <widget class="QLineEdit" name="LineEdit_Foco">
     <property name="geometry">
      <rect>
       <x>130</x>
-      <y>260</y>
-      <width>113</width>
+      <y>270</y>
+      <width>31</width>
       <height>22</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
     </property>
    </widget>
    <widget class="QPushButton" name="Boton_borrar">
     <property name="geometry">
      <rect>
-      <x>180</x>
-      <y>310</y>
+      <x>290</x>
+      <y>360</y>
       <width>93</width>
       <height>28</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Borrar</string>
@@ -63,11 +83,16 @@
    <widget class="QPushButton" name="Boton_imprimir">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>310</y>
+      <x>110</x>
+      <y>360</y>
       <width>93</width>
       <height>28</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Imprimir</string>
@@ -76,11 +101,16 @@
    <widget class="QComboBox" name="ComboBox_Conicas">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>80</y>
+      <x>280</x>
+      <y>40</y>
       <width>181</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
     </property>
     <item>
      <property name="text">
@@ -101,21 +131,31 @@
    <widget class="QLineEdit" name="LineEdit_a">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>170</y>
+      <x>290</x>
+      <y>310</y>
       <width>31</width>
       <height>21</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
     </property>
    </widget>
    <widget class="QLabel" name="Label_a">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>170</y>
+      <x>260</x>
+      <y>310</y>
       <width>21</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>a =</string>
@@ -124,11 +164,16 @@
    <widget class="QLineEdit" name="LineEdit_VcoordenadaX">
     <property name="geometry">
      <rect>
-      <x>140</x>
-      <y>210</y>
+      <x>290</x>
+      <y>270</y>
       <width>31</width>
       <height>22</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>0</string>
@@ -137,11 +182,16 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>210</y>
+      <x>190</x>
+      <y>270</y>
       <width>55</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Origen:</string>
@@ -150,11 +200,16 @@
    <widget class="QLabel" name="Label_b">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>170</y>
+      <x>340</x>
+      <y>310</y>
       <width>31</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>b = </string>
@@ -163,11 +218,16 @@
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>110</x>
-      <y>210</y>
+      <x>260</x>
+      <y>270</y>
       <width>21</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>x =</string>
@@ -176,11 +236,16 @@
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
-      <x>190</x>
-      <y>210</y>
+      <x>340</x>
+      <y>270</y>
       <width>21</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>y =</string>
@@ -189,11 +254,16 @@
    <widget class="QLineEdit" name="LineEdit_VcoordenadaY">
     <property name="geometry">
      <rect>
-      <x>220</x>
-      <y>210</y>
+      <x>370</x>
+      <y>270</y>
       <width>31</width>
       <height>22</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>0</string>
@@ -202,37 +272,52 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>40</x>
       <y>50</y>
-      <width>141</width>
+      <width>221</width>
       <height>16</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>Tipo de telescopio</string>
+     <string>Seleccione el tipo de telescopio:</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>40</y>
-      <width>101</width>
+      <x>30</x>
+      <y>90</y>
+      <width>221</width>
       <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
     <property name="text">
-     <string>Conicas usadas:</string>
+     <string>Conicas usadas por el telescopio:</string>
     </property>
    </widget>
    <widget class="QLabel" name="Label_Conicas">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>70</y>
-      <width>111</width>
-      <height>41</height>
+      <x>280</x>
+      <y>100</y>
+      <width>171</width>
+      <height>16</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Parábola</string>
@@ -241,15 +326,76 @@
    <widget class="QLabel" name="Label_Bienvenida">
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>130</y>
-      <width>271</width>
+      <x>120</x>
+      <y>230</y>
+      <width>231</width>
       <height>16</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
     </property>
     <property name="text">
      <string>Inserte los datos de la parábola:</string>
     </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>300</y>
+      <width>201</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Semi ejes mayores y menores:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>180</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Conica a insertar:</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="ComboBox_ConicaSelect">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>180</y>
+      <width>181</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <item>
+     <property name="text">
+      <string>Parábola</string>
+     </property>
+    </item>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -257,10 +403,25 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>363</width>
+     <width>502</width>
      <height>26</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuAyuda">
+    <property name="title">
+     <string>Ayuda</string>
+    </property>
+    <addaction name="action_C_mo_usar_el_programa"/>
+    <addaction name="separator"/>
+    <addaction name="actionAcerca_de"/>
+   </widget>
+   <widget class="QMenu" name="menuaaa">
+    <property name="title">
+     <string>Documentación</string>
+    </property>
+   </widget>
+   <addaction name="menuaaa"/>
+   <addaction name="menuAyuda"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionGuardar">
@@ -291,6 +452,16 @@
   <action name="actionCassegrain">
    <property name="text">
     <string>Cassegrain</string>
+   </property>
+  </action>
+  <action name="action_C_mo_usar_el_programa">
+   <property name="text">
+    <string>¿Cómo usar el programa?</string>
+   </property>
+  </action>
+  <action name="actionAcerca_de">
+   <property name="text">
+    <string>Acerca de</string>
    </property>
   </action>
  </widget>

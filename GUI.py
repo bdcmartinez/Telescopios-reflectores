@@ -214,8 +214,10 @@ class Window(QMainWindow):
         #self.Boton_luz.clicked.connect(self.fn_Animacion_luz)
     
         self.ComboBox_Conicas.activated.connect(self.fn_Cambiar)  #Sirve para detectar que elemento esta en el combo box
+        self.ComboBox_ConicaSelect.activated.connect(self.fn_CambiarBienvenida)
     
-    
+    def fn_CambiarBienvenida(self):
+        self.Label_Bienvenida.setText("Inserte los datos de la " + self.ComboBox_ConicaSelect.currentText())
     def fn_Cambiar(self):
         
         self.Label_Conicas.setText("")
@@ -239,18 +241,32 @@ class Window(QMainWindow):
             self.LineEdit_b.setEnabled(False)
             
         if self.ComboBox_Conicas.currentText() == "Newtoniano":
-            self.Label_Bienvenida.setText("Inserte los datos de la parábola:")
+            self.ComboBox_ConicaSelect.clear()
+            
+            
             self.Label_Conicas.setText("Parábola")
             
+            self.ComboBox_ConicaSelect.addItem("Parábola")
+            
         if self.ComboBox_Conicas.currentText() == "Gregoriano":
-            self.Label_Bienvenida.setText("Inserte los datos de la elipse:")
-            self.Label_Conicas.setText("Elipse\nParábola")
-        
+            self.ComboBox_ConicaSelect.clear()
+            
+            self.Label_Conicas.setText("Elipse y Parábola")
+            
+            self.ComboBox_ConicaSelect.addItem("Parábola")
+            self.ComboBox_ConicaSelect.addItem("Elipse")
+            
+            
         if self.ComboBox_Conicas.currentText() == "Cassegrain":
-            self.Label_Bienvenida.setText("Inserte los datos de la hipérbola:")
-            self.Label_Conicas.setText("Hipérbola\nParábola")
-        
-        
+            self.ComboBox_ConicaSelect.clear()
+            
+            self.Label_Conicas.setText("Hipérbola y Parábola")
+            
+            self.ComboBox_ConicaSelect.addItem("Hiperbola")
+            self.ComboBox_ConicaSelect.addItem("Parábola")
+    
+    
+
 
     def fn_Borrar_datos(self):
         self.LineEdit_Foco.setText("")
